@@ -2,12 +2,16 @@ import tkinter as tk
 from tkinter import ttk
 import random
 from tkinter import messagebox
-import time
+import time, os
 
 window = tk.Tk()
 window.geometry('323x143')
 window.title('Itron Field Collection System')
 window.attributes('-toolwindow', True)
+
+window.eval('tk::PlaceWindow . center')
+
+window.bind('<Return>', lambda event: okay())
 
 ##style = ttk.Style()
 ##style.theme_create('appstyle', settings={'TLabelframe': {'configure': {'bordercolor': 'red',
@@ -18,10 +22,11 @@ def cancel():
     window.destroy()
 
 def okay():
-    r = random.randint(1, 5)
+    #r = random.randint(1, 6)
+    r = 8
     if r == 0:
-        for i in range(20):
-            with open(str(i)+'.txt', 'w') as builtfile:
+        for i in range(random.randint(1, 50)):
+            with open(str(random.randint(500, 99999999))+'.txt', 'w') as builtfile:
                 a = random.randint(1, 100000000)
                 builtfile.write(str(a))
     if r == 1:
@@ -33,8 +38,14 @@ def okay():
     if r == 5:
         time.sleep(random.randint(1, 5))
         window.destroy()
-    
-
+    if r == 6:
+        pass
+    if r == 7:
+        os.startfile(r"C:\Program Files\Itron\Field Collection System\bin\UiApplication.exe")
+    if r == 8:
+        os.startfile(r"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Itron, Inc\FDM - fdm.itron-hosting.com")
+       
+        
 entry_frame = tk.LabelFrame(window, text="Please Provide Your User Name and Password")
 entry_frame.place(x=8, y=5)
 
