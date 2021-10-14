@@ -48,7 +48,7 @@ user_name_entry = ttk.Entry(entry_frame, width=37)
 user_name_entry.grid(row=0, column=1, padx=4, pady=2, sticky="nsew")
 user_name_entry.insert(0, 'FCS')
 
-password_entry = ttk.Entry(entry_frame, width=37)
+password_entry = ttk.Entry(entry_frame, width=37, show="*")
 password_entry.grid(row=1, column=1, padx=4, pady=4, sticky="nsew")
 
 database_label = ttk.Label(entry_frame, text="Database:")
